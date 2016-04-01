@@ -9,18 +9,10 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Marla Brizel"]
   spec.email         = ["marlabrizel@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "Rack Middleware to block News Genius annotations"
+  spec.description   = "Genius Blocker is a piece of Rack Middleware designed to prevent unwanted annotations by News Genius. The middleware injects a small bit of JavaScript code into the <head></head> of a website in order to force a redirect to the original website whenever anyone attempts to prepend genius.it/ onto a website's URL for annotation purposes."
+  spec.homepage      = "https://github.com/marlabrizel/genius-blocker"
   spec.license       = "MIT"
-
-  # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
-  # delete this section to allow pushing this gem to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
-  end
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"

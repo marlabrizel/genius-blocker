@@ -8,7 +8,7 @@ module Genius
 
     REDIRECT_SCRIPT = <<-EOF
       <script>
-        var annotated = window.location.href.indexOf("genius.it/") != -1;
+        var annotated = window.location.href.indexOf("genius.it/") !== -1;
 
         if (annotated) {
           window.location.href = window.location.href.replace("genius.it/", "")

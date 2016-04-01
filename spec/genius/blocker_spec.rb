@@ -8,7 +8,7 @@ describe Genius::Blocker do
   let(:app) do
     Rack::Builder.new do
       use Genius::Blocker
-      run  lambda { |env| [301, {}, [<<-EOT]] }
+      run lambda { |env| [200, {'Content-Type' => 'text/html'}, [<<-EOT]] }
         <html>
           <head>
           </head>
@@ -21,8 +21,24 @@ describe Genius::Blocker do
   let(:request) { Rack::MockRequest.new(app) }
   let(:response) { request.get(url) }
 
-  it 'adds a script tag to redirect' do
-    document = Oga.parse_html(response.body)
-    expect(document.css('head > script').size).to eq 1
+  context 'for an html page' do
+    it 'adds a script tag to redirect' do
+      document = Oga.parse_html(response.body)
+      expect(document.css('head > script').size).to eq 1
+    end
+  end
+
+  context 'for non-html content' do
+    let(:app) do
+      Rack::Builder.new do
+        use Genius::Blocker
+        run lambda { |env| [200, {'Content-Type' => 'application/json'}, []] }
+      end
+    end
+
+    it 'does not redirect' do
+      document = Oga.parse_html(response.body)
+      expect(document.css('head > script').size).to eq 0
+    end
   end
 end

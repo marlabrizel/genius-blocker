@@ -1,5 +1,5 @@
 module Genius
-  module Blocker
+  class Blocker
     VERSION = "0.1.0"
   end
 end

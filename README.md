@@ -27,17 +27,19 @@ Or install it yourself as:
 
 For most applications, you can insert middleware into the config.ru file in the root of the application.
 
-A simple config.ru in a Rails application might look
+A simple `config.ru` in a Rails application might look
 like this after adding Genius::Blocker:
 
+```ruby
 require ::File.expand_path('../config/environment',  __FILE__)
 
 use Genius::Blocker
 run MyRailsApp::Application
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/marlabrizel/genius-blocker. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct. Any pull requests or issues that do not adhere to these guidelines will be ignored and/or deleted.
+Bug reports and pull requests are welcome on [GitHub](https://github.com/marlabrizel/genius-blocker). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct. Any pull requests or issues that do not adhere to these guidelines will be ignored and/or deleted.
 
 
 ## License

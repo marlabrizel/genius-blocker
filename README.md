@@ -1,8 +1,11 @@
 # Genius::Blocker
+Genius Blocker is a piece of Rack Middleware designed to prevent unwanted
+annotations by [News Genius](http://news.genius.com/).
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/genius/blocker`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+The middleware injects a small bit of JavaScript code into the
+`<head></head>` of a website in order to force a redirect to the original
+website whenever anyone attempts to prepend `genius.it/` onto a website's URL
+for annotation purposes.
 
 ## Installation
 
@@ -22,17 +25,19 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+For most applications, you can insert middleware into the config.ru file in the root of the application.
 
-## Development
+A simple config.ru in a Rails application might look
+like this after adding Genius::Blocker:
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+require ::File.expand_path('../config/environment',  __FILE__)
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+use Genius::Blocker
+run MyRailsApp::Application
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/genius-blocker. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/marlabrizel/genius-blocker. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct. Any pull requests or issues that do not adhere to these guidelines will be ignored and/or deleted.
 
 
 ## License

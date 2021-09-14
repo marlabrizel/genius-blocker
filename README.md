@@ -1,5 +1,4 @@
 # Genius::Blocker
-[![Build Status](https://travis-ci.org/marlabrizel/genius-blocker.svg?branch=master)](https://travis-ci.org/marlabrizel/genius-blocker)
 
 Genius Blocker is a piece of Rack Middleware designed to prevent unwanted
 annotations by [News Genius](http://news.genius.com/).
